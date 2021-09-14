@@ -32,12 +32,6 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
     }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
     public function unverified()
     {
         return $this->state(function (array $attributes) {
@@ -46,18 +40,11 @@ class UserFactory extends Factory
             ];
         });
     }
-
-    /**
-     * Indicate that the user should have a personal team.
-     *
-     * @return $this
-     */
     public function withPersonalTeam()
     {
         if (! Features::hasTeamFeatures()) {
             return $this->state([]);
         }
-
         return $this->has(
             Team::factory()
                 ->state(function (array $attributes, User $user) {
