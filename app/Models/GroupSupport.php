@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GroupSupport extends Model
 {
+    protected $fillable = [
+        'group', 'type_support'
+    ];
     use HasFactory;
 }

@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Assignment;
+use App\Models\GroupSupport;
+use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AssignmentFactory extends Factory
@@ -22,7 +24,8 @@ class AssignmentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'group_id' => GroupSupport::all()->random()->id,
+            'ticket_id' => Ticket::all()->random()->id
         ];
     }
 }

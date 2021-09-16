@@ -15,7 +15,8 @@ class CreateGroupSupportsTable extends Migration
     {
         Schema::create('group_supports', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('group', 40);
+
             $table->unsignedBigInteger('type_support')->nullable();
             $table->foreign('type_support')->references('id')->on('type_supports')->onDelete('cascade');
 
