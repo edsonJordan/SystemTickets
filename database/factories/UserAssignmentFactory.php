@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\User_Assignment;
+use App\Models\UserAssignment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserAssignmentFactory extends Factory
@@ -12,7 +12,7 @@ class UserAssignmentFactory extends Factory
      *
      * @var string
      */
-    protected $model = User_Assignment::class;
+    protected $model = UserAssignment::class;
 
     /**
      * Define the model's default state.

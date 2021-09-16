@@ -3,6 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Ticket;
+use App\Models\TicketPriority;
+use App\Models\TicketStatus;
+use App\Models\TypeTicket;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TicketFactory extends Factory
@@ -22,7 +26,11 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::all()->random()->id,
+            'type_ticket' => TypeTicket::all()->random()->id,
+            'priority_id' => TicketPriority::all()->random()->id,
+            'status_id' => TicketStatus::all()->random()->id,
+            'description' => $this->faker->text(500)
         ];
     }
 }

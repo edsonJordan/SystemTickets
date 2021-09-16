@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupSupportsTable extends Migration
+class CreateTicketStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateGroupSupportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_supports', function (Blueprint $table) {
+        Schema::create('ticket_statuses', function (Blueprint $table) {
             $table->id();
-            
-            $table->unsignedBigInteger('type_support')->nullable();
-            $table->foreign('type_support')->references('id')->on('type_supports')->onDelete('cascade');
-
+            $table->string('status', 20);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateGroupSupportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_supports');
+        Schema::dropIfExists('ticket_statuses');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeTicketsTable extends Migration
+class CreateAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateTypeTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_tickets', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->id();
+            $table->string('area', 40);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateTypeTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_tickets');
+        Schema::dropIfExists('areas');
     }
 }

@@ -14,7 +14,8 @@ class CreateTypeUsersTable extends Migration
     public function up()
     {
         Schema::create('type_users', function (Blueprint $table) {
-            $table->id();
+            $table->id();            
+            $table->string('type_user', 40)->unique();
             $table->timestamps();
         });
     }

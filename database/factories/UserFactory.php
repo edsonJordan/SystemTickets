@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Area;
 use App\Models\Team;
+use App\Models\TypeUser;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -24,8 +26,11 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        /* 'type_id' => TypeUser::all()->random()->id, */
         return [
-            'name' => $this->faker->name(),
+            'name' => $this->faker->name(),            
+            'type_id' => TypeUser::all()->random()->id,
+            'area_id' => Area::all()->random()->id,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TypeTicket extends Model
+class TicketPriority extends Model
 {
     protected $fillable = [
-        'type'
+        'priority'
     ];
     use HasFactory;
-
-    public function types(){
+    
+    public function priorities(){
         return $this->hasMany(Ticket::class);
     }
 }

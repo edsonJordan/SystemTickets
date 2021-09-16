@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\TypeUser;
+use App\Models\TicketPriority;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TypeUserFactory extends Factory
+class TicketPriorityFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = TypeUser::class;
+    protected $model = TicketPriority::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class TypeUserFactory extends Factory
     public function definition()
     {
         return [
-           /*  'type_user' => $this->faker->name()    */
+            //
         ];
     }
 }

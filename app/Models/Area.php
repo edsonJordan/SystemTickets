@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
+    protected $fillable = [
+        'area'
+    ];
     use HasFactory;
+
+    public function areas(){
+        return $this->hasMany(Ticket::class);
+    }
+
 }

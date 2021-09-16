@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeUser extends Model
 {
+    protected $fillable = [
+        'type_user'
+    ];
     use HasFactory;
+
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }

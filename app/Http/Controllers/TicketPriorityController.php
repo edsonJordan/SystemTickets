@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserAssignment;
+use App\Models\TicketPriority;
 use Illuminate\Http\Request;
 
-class UserAssignmentController extends Controller
+class TicketPriorityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserAssignmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserAssignment  $userAssignment
+     * @param  \App\Models\TicketPriority  $ticketPriority
      * @return \Illuminate\Http\Response
      */
-    public function show(UserAssignment $userAssignment)
+    public function show(TicketPriority $ticketPriority)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserAssignmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserAssignment  $userAssignment
+     * @param  \App\Models\TicketPriority  $ticketPriority
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserAssignment $userAssignment)
+    public function edit(TicketPriority $ticketPriority)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserAssignmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserAssignment  $userAssignment
+     * @param  \App\Models\TicketPriority  $ticketPriority
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserAssignment $userAssignment)
+    public function update(Request $request, TicketPriority $ticketPriority)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserAssignmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserAssignment  $userAssignment
+     * @param  \App\Models\TicketPriority  $ticketPriority
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserAssignment $userAssignment)
+    public function destroy(TicketPriority $ticketPriority)
     {
         //
     }
