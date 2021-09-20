@@ -248,13 +248,13 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin/pages',
+            'route'         => 'admin.ticket.users.index',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Tickets',
-            'url'         => 'admin/pages',
+            'route'         => 'admin.ticket.users.index',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -262,25 +262,25 @@ return [
         ['header' => 'EQUIPOS DE TRABAJO'],
         [
             'text' => 'Equipos',
-            'url'  => 'admin/settings',
+            'route'  => 'admin.ticket.users.index',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'PERMISOS Y ROLES'],
         [
             'text' => 'Roles',
-            'url'  => 'admin/settings',
+            'route'  => 'admin.ticket.users.index',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'ÁREAS'],
         [
             'text' => 'Áreas',
-            'url'  => 'admin/settings',
+            'route'  => 'admin.ticket.areas.index',
             'icon' => 'fas fa-fw fa-building',
         ],
         ['header' => 'COLABORADORES'],
         [
             'text' => 'Colaboradores',
-            'url'  => 'admin/settings',
+            'route'  => 'admin.ticket.users.index',
             'icon' => 'fas fa-fw fa-user',
         ],
     ],
@@ -366,12 +366,12 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@9',
                 ],
             ],
         ],
@@ -437,5 +437,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
