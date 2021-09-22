@@ -11,4 +11,10 @@ class TypeSupport extends Model
         'type'
     ];
     use HasFactory;
+
+    public function groups(){
+        return $this->belongsToMany(GroupSupport::class);
+    }
+
+    
 }

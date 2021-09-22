@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class GroupSupport extends Model
 {
     protected $fillable = [
-        'group', 'type_support'
+        'group', 'type_id'
     ];
     use HasFactory;
+    
+    public function type(){
+        return $this->belongsTo(TypeSupport::class);
+    }
+    
+    
 }

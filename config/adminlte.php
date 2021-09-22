@@ -65,9 +65,9 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => true,
+    'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
@@ -235,7 +235,6 @@ return [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
-
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
@@ -261,8 +260,8 @@ return [
         ],
         ['header' => 'EQUIPOS DE TRABAJO'],
         [
-            'text' => 'Equipos',
-            'route'  => 'admin.ticket.users.index',
+            'text' => 'Equipos de trabajo',
+            'route'  => 'admin.ticket.groups.index',
             'icon' => 'fas fa-fw fa-users',
         ],
         ['header' => 'PERMISOS Y ROLES'],

@@ -29,6 +29,7 @@ class AreaController extends Controller
     {
         return view('admin.ticket.areas.create');
     }
+    
     public function store(StoreAreaRequest $request)
     {
         $request->validate(['area' => 'required']);
@@ -47,7 +48,6 @@ class AreaController extends Controller
     public function update(UpdateAreaRequest $request, Area $area)
     {
         $area->update($request->all());
-
         return redirect()->route('admin.ticket.areas.index', $area)->with('info', 'El área se edito correctamente');
     }
 

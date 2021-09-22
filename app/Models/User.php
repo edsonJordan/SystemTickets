@@ -18,11 +18,10 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
+    public function getRouteKeyName(){
+        return 'name';
+    }
+
     protected $fillable = [
         'name',
         'email',
@@ -55,8 +54,6 @@ class User extends Authenticatable
     public function group(){
         return $this->belongsTo(GroupSupport::class);
     }
-
-
 
     public function areas(){
         return $this->belongsToMany(Area::class);
