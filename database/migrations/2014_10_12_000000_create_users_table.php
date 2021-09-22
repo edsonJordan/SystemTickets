@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
 
-            $table->unsignedBigInteger('type_id')->nullable();
+            $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type_users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('area_id')->nullable();
+            $table->unsignedBigInteger('area_id');
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
 
             $table->unsignedBigInteger('group_id')->nullable();

@@ -56,7 +56,7 @@ return [
     |--------------------------------------------------------------------------
     | User Menu
     |--------------------------------------------------------------------------
-    |
+    |.
     | Here you can activate and change the user menu.
     |
     | For detailed instructions you can look the user menu section here:
@@ -65,9 +65,9 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
+    'usermenu_image' => true,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
 
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -370,7 +370,7 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => true,
+                    'asset' => false,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@9',
                 ],
             ],
@@ -424,7 +424,6 @@ return [
             'use_navbar_items' => true,
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Livewire
@@ -436,6 +435,5 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     |
     */
-
     'livewire' => true,
 ];

@@ -13,9 +13,7 @@
     @endif
     @livewire('admin.ticket.areas-show')
 @stop
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+
 @section('js')        
 
 <script>

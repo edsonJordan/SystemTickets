@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Area;
+use App\Models\GroupSupport;
 use App\Models\Team;
 use App\Models\TypeUser;
 use App\Models\User;
@@ -31,6 +32,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),            
             'type_id' => TypeUser::all()->random()->id,
             'area_id' => Area::all()->random()->id,
+            'group_id' => GroupSupport::all()->random()->id,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

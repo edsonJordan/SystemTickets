@@ -29,19 +29,11 @@ class AreaController extends Controller
     {
         return view('admin.ticket.areas.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreAreaRequest $request)
     {
         $request->validate(['area' => 'required']);
         $role = Area::create($request->all());
         return redirect()->route('admin.ticket.areas.index')->with('info', 'El área se creo correctamente');
-
     }
     public function show(Area $area)
     {

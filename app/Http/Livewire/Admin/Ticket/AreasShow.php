@@ -17,7 +17,8 @@ class AreasShow extends Component
     }
     public function render()
     {
-        $areas = Area::where('area', 'LIKE', '%'.$this->search.'%')->paginate(10);
-        return view('livewire.admin.areas-show', compact('areas'));
+        $areas = Area::where('area', 'LIKE', '%'.$this->search.'%')
+                ->paginate(10);
+        return view('livewire.admin.ticket.areas-show', compact('areas'));
     }
 }

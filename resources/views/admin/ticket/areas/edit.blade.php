@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Edson Dev')
 @section('content_header')
-    <h1>Formulario de creación de tecnologia</h1>
+    <h1>Formulario de edición de areas</h1>
 @stop
 
 @section('content')

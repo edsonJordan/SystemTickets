@@ -46,9 +46,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-    public function typeuser(){
+    public function type(){
         return $this->belongsTo(TypeUser::class);
     }
+    public function area(){
+        return $this->belongsTo(Area::class);
+    }
+    public function group(){
+        return $this->belongsTo(GroupSupport::class);
+    }
 
+
+
+    public function areas(){
+        return $this->belongsToMany(Area::class);
+    }
    
 }
