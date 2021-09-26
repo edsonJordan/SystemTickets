@@ -239,7 +239,7 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'route'         => 'admin.ticket.users.index',
+            'route'         => 'admin.ticket.home.index',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
         ],
@@ -347,7 +347,7 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
