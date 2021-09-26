@@ -53,7 +53,6 @@
             </table>
         </div>
     </div>
-
 @stop
 
 @section('js')        

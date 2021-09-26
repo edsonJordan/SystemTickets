@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Ticket\StoreAreaRequest;
 use App\Http\Requests\Admin\Ticket\UpdateAreaRequest;
 use App\Models\Area;
+
 use Illuminate\Http\Request;
 
 class AreaController extends Controller
@@ -26,7 +27,8 @@ class AreaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {  
+        
         return view('admin.ticket.areas.create');
     }
     

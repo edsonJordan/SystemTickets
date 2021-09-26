@@ -226,15 +226,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
+        
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
@@ -253,7 +245,7 @@ return [
         ],
         [
             'text'        => 'Tickets',
-            'route'         => 'admin.ticket.users.index',
+            'route'         => 'admin.ticket.tickets.index',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -320,7 +312,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -340,7 +332,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

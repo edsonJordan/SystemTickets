@@ -27,9 +27,10 @@ class TicketFactory extends Factory
     {
         return [
             'user_id' => User::all()->random()->id,
-            'type_ticket' => TypeTicket::all()->random()->id,
+            'typeticket_id' => TypeTicket::all()->random()->id,
             'priority_id' => TicketPriority::all()->random()->id,
             'status_id' => TicketStatus::all()->random()->id,
+            'tittle' => $this->faker->text(200),
             'description' => $this->faker->text(500)
         ];
     }

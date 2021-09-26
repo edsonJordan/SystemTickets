@@ -19,15 +19,15 @@ class CreateTicketsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('type_ticket')->nullable();
-            $table->foreign('type_ticket')->references('id')->on('type_tickets')->onDelete('cascade');
+            $table->unsignedBigInteger('typeticket_id')->nullable();
+            $table->foreign('typeticket_id')->references('id')->on('type_tickets')->onDelete('cascade');
 
             $table->unsignedBigInteger('priority_id')->nullable();
             $table->foreign('priority_id')->references('id')->on('ticket_priorities')->onDelete('cascade');
 
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('ticket_statuses')->onDelete('cascade');
-
+            $table->text('tittle', 200);
             $table->text('description', 1000);
             $table->timestamps();
         });
