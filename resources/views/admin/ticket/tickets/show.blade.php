@@ -64,7 +64,7 @@
                     <a href="#" class="btn-link text-secondary"><i class="far fa-fw fa-clock"></i>Creado : {{$ticket->created_at->toFormattedDateString() }}</a>
                   </li>
                   <li>
-                    <a href="#" class="btn-link text-secondary"><i class="far fa-fw fa-clock"></i>Actualizado: {{$ticket->created_at->toFormattedDateString() }}</a>
+                    <a href="#" class="btn-link text-secondary"><i class="far fa-fw fa-clock"></i>Actualizado: {{$ticket->updated_at->toFormattedDateString() }}</a>
                   </li>                
                 </ul>
 

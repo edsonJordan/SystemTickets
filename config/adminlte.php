@@ -242,14 +242,7 @@ return [
             'route'         => 'admin.ticket.home.index',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Tickets',
-            'route'         => 'admin.ticket.tickets.index',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+        ],        
         ['header' => 'EQUIPOS DE TRABAJO'],
         [
             'text' => 'Equipos de trabajo',

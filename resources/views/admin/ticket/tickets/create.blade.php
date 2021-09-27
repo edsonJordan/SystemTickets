@@ -47,7 +47,7 @@
                     @enderror
                     </div>
 
-                    <div class="col-3 col-lg-6  pb-4 ">
+                    <div class="col-md-3 col-lg-6  pb-4 ">
                         <p>
                             {!! Form::label('status_id', 'Estado') !!}
                         </p>                             

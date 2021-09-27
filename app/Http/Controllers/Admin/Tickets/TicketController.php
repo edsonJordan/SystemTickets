@@ -21,6 +21,7 @@ class TicketController extends Controller
     public function index()
     {
         $tickets = Ticket::all();
+       
         return view('admin.ticket.tickets.index', compact('tickets'));
     }
 
@@ -70,8 +71,9 @@ class TicketController extends Controller
 
         return view('admin.ticket.tickets.edit', compact('ticket', 'users', 'typestickets', 'prioritys', 'status'));
     }
-    public function update(Request $request, Ticket $ticket)
+    public function update(StoreTicketRequest $request, Ticket $ticket)
     {
+        
         $ticket->update($request->all());
         return redirect()->route('admin.ticket.tickets.index')->with('info', 'El ticket se edito correctamente');
     }

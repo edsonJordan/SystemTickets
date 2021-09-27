@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -30,9 +31,17 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /* Event::listen(BuildingMenu::class, function (BuildingMenu $event){
-            $user = User::where('id', Auth::user()->id)->first();
-            $event->menu->add(['text' => 'Usuario', 'route' => 'admin.ticket.users.index', 'icon'=> 'fas fa-fw fa-user']);
-        }); */
+        Event::listen(BuildingMenu::class, function (BuildingMenu $event){
+            $count = Ticket::where('status_id', 1)->count();
+            $event->menu->add(
+                ['header' => 'SOPORTE']
+                ,[
+                'text' => 'Tickets', 
+                'route' => 'admin.ticket.tickets.index', 
+                'icon'=> 'far fa-fw fa-file',
+                
+                'label' =>  $count,
+                'label_color' =>'warning']);
+        });
     }
 }
