@@ -8,9 +8,7 @@
 
     <div class="card">
         <div class="card-header">
-
-            {!! Form::open(['route' => 'admin.ticket.tickets.store', 'autocomplete' => 'off', 'files' => true]) !!}
-
+            {!! Form::model($ticket,['route' => ['admin.ticket.tickets.update', $ticket], 'method'=>'put']) !!}            
             <div class="form-group">   
                 <div class="row">
                     <div class="col-md-3 col-lg-6  pb-4 ">
@@ -28,7 +26,7 @@
                         <p  >
                             {!! Form::label('typeticket_id', 'Tipo de ticket') !!}
                         </p>                             
-                            {{ Form::select('typeticket_id', $typesticket, null, ['class' => 'select2', 'style' => 'width: 100%;']) }}
+                            {{ Form::select('typeticket_id', $typestickets, null, ['class' => 'select2', 'style' => 'width: 100%;']) }}
                     @error('typeticket_id')
                         <br>
                         <small class="text-danger" >{{$message}}</small>
@@ -78,7 +76,7 @@
                 </div>
             </div>
            
-            {!! Form::submit('Crear Ticket', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Editar Ticket', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
         <div class="card-body">
@@ -93,16 +91,10 @@
 @section('js')
 {{-- <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script> --}}
 <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
-
 <script>
-
-
     $(document).ready(function() {
-
     $('.select2').select2();
-    
         ClassicEditor
-
         .create(document.querySelector('#description'), {
             removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption', 'ImageStyle', 'ImageToolbar', 'ImageUpload', 'MediaEmbed'],
         })
@@ -110,13 +102,7 @@
             console.error( error );
         } );
 
-        ClassicEditor
-
-    
-
         
-
-
 });
 </script>
 @endsection

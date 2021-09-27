@@ -24,7 +24,6 @@ class UserController extends Controller
     {
         //
     }
-
     public function show(User $user)
     {
         return view('admin.ticket.users.show', compact('user'));

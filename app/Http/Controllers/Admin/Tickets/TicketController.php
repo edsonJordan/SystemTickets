@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Tickets;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Ticket\StoreTicketRequest;
 use App\Models\Ticket;
 use App\Models\TicketPriority;
 use App\Models\TicketStatus;
@@ -31,10 +32,10 @@ class TicketController extends Controller
     public function create()
     {
         $users = User::pluck('name', 'id');
-        $types = TypeTicket::pluck('type', 'id');
+        $typesticket = TypeTicket::pluck('type', 'id');
         $prioritys = TicketPriority::pluck('priority', 'id');
         $status = TicketStatus::pluck('status', 'id');
-        return view('admin.ticket.tickets.create', compact('users', 'types', 'prioritys', 'status'));
+        return view('admin.ticket.tickets.create', compact('users', 'typesticket', 'prioritys', 'status'));
     }
 
     /**
@@ -43,9 +44,10 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTicketRequest $request)
     {
-        //
+        Ticket::create($request->all());        
+        return redirect()->route('admin.ticket.tickets.index')->with('info', 'El área se creo correctamente');
     }
 
     /**
@@ -56,30 +58,22 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        return view('admin.ticket.tickets.show', compact('ticket'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ticket  $ticket
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Ticket $ticket)
     {
-        //
-    }
+        $users = User::pluck('name', 'id');
+        $typestickets = TypeTicket::pluck('type', 'id');
+        $prioritys = TicketPriority::pluck('priority', 'id');
+        $status = TicketStatus::pluck('status', 'id');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ticket  $ticket
-     * @return \Illuminate\Http\Response
-     */
+        return view('admin.ticket.tickets.edit', compact('ticket', 'users', 'typestickets', 'prioritys', 'status'));
+    }
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        $ticket->update($request->all());
+        return redirect()->route('admin.ticket.tickets.index')->with('info', 'El ticket se edito correctamente');
     }
 
     /**
