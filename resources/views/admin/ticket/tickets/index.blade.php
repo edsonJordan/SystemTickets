@@ -18,7 +18,7 @@
           
         </div>
         <div class="card-body">
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="example" class="table table-striped"  wire:ignore	>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -75,10 +75,16 @@
 <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
+        window.livewire.on('#table',()=>{
+            initSelectDrop();
+        });
+
+        .
     $('#example').DataTable({
         responsive:true,
         autoWidth:false
     });
+
     } );    
     $('.formulario-eliminar').submit(function(e) {
         e.preventDefault();

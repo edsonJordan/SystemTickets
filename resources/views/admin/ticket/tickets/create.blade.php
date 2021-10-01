@@ -8,11 +8,11 @@
 
     <div class="card">
         <div class="card-header">
-
+            
             {!! Form::open(['route' => 'admin.ticket.tickets.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
             <div class="form-group">   
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-3 col-lg-6  pb-4 ">
                         <p>
                             {!! Form::label('user_id', 'Usuario') !!}

@@ -14,7 +14,7 @@ class UsersShow extends Component
     public function updatingSearch()
     {
         $this->resetPage();
-    }
+    }   
     public function render()
     {
         $users = User::where('name', 'LIKE', '%'.$this->search.'%')                    
