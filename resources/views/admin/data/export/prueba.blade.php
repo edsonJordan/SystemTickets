@@ -22,19 +22,27 @@
         </tr>
 	  </thead>
 	  <tbody>
-	    @foreach ($results as $result)
+	        @foreach ($results as $result)
                 <tr class=" ">
-                    <td  class=" " >{{$result->user->name }}</td>
-                    <td class="" >{{$result->status->status}}</td>
-                    <td class=" "> {{substr($result->tittle, 0, 40) }}</td>
-                     {{-- <td class="td text-light" >{{$result->created_at->formatLocalized('%d %B %Y %I:%M %p')}}</td>  --}}
-                    <td class="" >{{$result->created_at->formatLocalized('%d %B %Y %I:%M %p')}}</td>
-                    <td class="" >{{$result->updated_at->formatLocalized('%d %B %Y %I:%M %p')}}</td>                    
+                    <td>{{$result->user->name }}</td>
+                    <td>{{$result->typeticket->type }}</td>
+                    <td>{{$result->tittle }}</td>
+                    <td>{{$result->created_at->formatLocalized('%d %B %Y %I:%M %p') }}</td>
+                    <td>{{$result->updated_at->formatLocalized('%d %B %Y %I:%M %p') }}</td>                   
                 </tr>
             @endforeach
 	  </tbody>
 	</table>
-	{{-- <script type="text/php">
+    
+	<script type="text/php">
+        if ( isset($pdf) ) {
+            $pdf->page_script('
+                $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
+                $pdf->text(150, 780, " Busqueda: de {{$user}} desde {{$dataStart}} hasta {{$dataEnd}} de tipo {{$dataType}} Pág $PAGE_NUM de $PAGE_COUNT", $font, 10);
+            ');
+        }
+	</script>
+    {{-- <script type="text/php">
         if ( isset($pdf) ) {
             $pdf->page_script('
                 $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
@@ -42,13 +50,5 @@
             ');
         }
 	</script> --}}
-    <script type="text/php">
-        if ( isset($pdf) ) {
-            $pdf->page_script('
-                $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
-                $pdf->text(270, 780, "Pág $PAGE_NUM de $PAGE_COUNT", $font, 10);
-            ');
-        }
-	</script>
 </body>
 </html>

@@ -11,21 +11,12 @@ use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('admin.ticket.areas.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {  
         
@@ -53,12 +44,6 @@ class AreaController extends Controller
         return redirect()->route('admin.ticket.areas.index', $area)->with('info', 'El área se edito correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Area  $area
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Area $area)
     {
         $area->delete($area);

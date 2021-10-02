@@ -20,8 +20,8 @@ class PdfController extends Controller
     public function prueba()
     {
         $results = Ticket::select('user_id', 'status_id', 'tittle', 'created_at', 'updated_at')
-        ->orderBy('created_at', 'DESC')->take(100)->get();/* 
-        $pdf = PDF::loadView('admin.data.export.prueba', compact('results'))->setPaper('a4', 'landscape')->setOptions(['defaultFont' => 'Open Sans']); */
+        ->orderBy('created_at', 'DESC')->take(100)->get();
+        //$pdf = PDF::loadView('admin.data.export.prueba', compact('results'))->setPaper('a4', 'landscape')->setOptions(['defaultFont' => 'Open Sans']); 
         $pdf = PDF::loadView('admin.data.export.prueba', compact('results'));
         return $pdf->stream('Pagina.pdf');
     }
