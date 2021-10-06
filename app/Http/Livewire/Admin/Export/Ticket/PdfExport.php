@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Export\Ticket;
 
 use App\Models\Ticket;
 use App\Models\TicketStatus;
+use App\Models\TypeTicket;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,9 @@ class PdfExport extends Component
     public $inputDateStart;
     public $inputDateEnd;
     public $perPage= '3';
+    public $infoUser ;
+    public $infotatus;
+
     protected $getTickets ;
 
     protected $data;
@@ -95,10 +99,30 @@ class PdfExport extends Component
             ->get();
         }
         $results = $this->getTickets;
-        $user = $this->inputUser;
+
+         
         $dataEnd =$this->inputDateEnd;
         $dataStart = $this->inputDateStart;
-        $dataType = $this->inputStatus;
+        //$dataType = $this->inputStatus;
+        
+
+        $getUser = User::select('name')->where('id', '=', $this->inputUser)->get();
+        $getStatus = TicketStatus::select('status')->where('id', '=', $this->inputStatus)->get();
+        if(count($getUser)){
+            $this->infoUser = $getUser[0]->name;
+        }else{
+            $this->infoUser = "todos";
+        }
+        if(count($getStatus)){
+            $this->infotatus = $getStatus[0]->status;
+        }else{
+            $this->infotatus = "todos los estados";
+        }
+
+
+
+        $user = $this->infoUser;
+        $dataType = $this->infotatus;
 
         $pdf = PDF::loadView('admin.data.export.prueba', compact('results', 'user', 'dataEnd', 'dataStart', 'dataType'));
         return response()->streamDownload(function () use ($pdf) {

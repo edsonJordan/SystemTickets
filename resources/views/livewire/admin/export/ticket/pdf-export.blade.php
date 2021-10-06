@@ -70,7 +70,7 @@ li.page-item {
               <thead>
                  <tr>                    
                     <th>Usuario</th>
-                    <th>Status</th>
+                    <th>Tipo</th>
                     <th>Titulo</th>
                     <th>Fecha de creación</th>
                     <th>Ultima Actualización</th>
