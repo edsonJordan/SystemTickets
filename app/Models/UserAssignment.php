@@ -11,4 +11,12 @@ class UserAssignment extends Model
         'user_id', 'ticket_id'
     ];
     use HasFactory;
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function ticket(){
+        return $this->belongsTo(Ticket::class);
+    }
+    
 }

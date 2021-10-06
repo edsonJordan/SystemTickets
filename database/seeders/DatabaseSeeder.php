@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TypeUserSeeder::class);
         $this->call(AreaSeeder::class);
-
+        $this->call(RoleSeeder::class);
         User::factory(100)->create();
             User::create([
                 'name' => 'Edson Jordan Huamani Ñahuin',
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => bcrypt('asd123'),
                 'remember_token' => Str::random(10),
-            ]);
+            ])->assignRole('Admin');
        
         
         $this->call(TypeTicketSeeder::class);
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TicketSeeder::class);
         $this->call(AssignmentSeeder::class);
         $this->call(UserAssignmentSeeder::class);
-
+        
         /* \App\Models\Ticket::factory(100)->create(); */
         
     }

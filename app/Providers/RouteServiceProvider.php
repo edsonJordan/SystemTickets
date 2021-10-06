@@ -56,10 +56,16 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('admin/ticket')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/ticket.php'));
+                
             Route::middleware('web', 'auth')
                 ->prefix('admin/export')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/export.php'));
+                
+            Route::middleware('web', 'auth')
+                ->prefix('admin/roles')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/role.php'));
         });
     }
 

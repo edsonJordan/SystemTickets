@@ -13,6 +13,13 @@ class Ticket extends Model
         'user_id', 'typeticket_id', 'priority_id', 'status_id', 'tittle', 'description'
     ];
 
+    /* 
+    public function getDatapickAttribute()
+    {
+    return $this->user_id . ' ' . $this->tittle;
+        } 
+        */
+
 
     public function area(){
         return $this->belongsTo(Area::class);
