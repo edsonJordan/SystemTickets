@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Edson Dev')
 @section('content_header')
-    <a class="btn btn-success btn-sm float-right" href="{{route('admin.ticket.groups.create')}}">Nueva Área</a>
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.ticket.groups.create')}}">Nueva Equipo</a>
     <h1>Lista de Grupos de Soporte</h1>
 @stop
 

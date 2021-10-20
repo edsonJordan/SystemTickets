@@ -18,12 +18,13 @@
           
         </div>
         <div class="card-body">
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="example" class="table table-striped" style="width:100%" >
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Usuario</th>
                         <th>Tipo de ticket</th>
+                        <th>Titulo</th>
                         <th>Prioridad</th>
                         <th>Estado</th>
                         <th class="text-center" >Operaciones</th>
@@ -36,6 +37,7 @@
                             <td>{{$ticket->id}}</td>
                             <td>{{$ticket->user->name}}</td>
                             <td>{{$ticket->typeticket->type}}</td>
+                            <td>{{  substr($ticket->tittle, 0, 50)."...." }}</td>
                             <td>{{$ticket->priority->priority}}</td>
                             <td>{{$ticket->status->status}}</td>                           
                             <td class="row d-flex-lg justify-content-around" >      
@@ -59,6 +61,7 @@
                         <th>ID</th>
                         <th>Usuario</th>
                         <th>Tipo de ticket</th>
+                        <th>Titulo</th>
                         <th>Prioridad</th>
                         <th>Estado</th>
                         <th class="text-center">Operaciones</th>
@@ -79,6 +82,7 @@
         responsive:true,
         autoWidth:false
     });
+
     } );    
     $('.formulario-eliminar').submit(function(e) {
         e.preventDefault();

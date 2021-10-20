@@ -240,39 +240,47 @@ return [
         [
             'text'        => 'Dashboard',
             'route'         => 'admin.ticket.home.index',
+<<<<<<< HEAD
+=======
+            'can'         => 'admin.ticket.home.index',
+>>>>>>> 88e6f4efece2c4540ed3066978f1f639763da386
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Tickets',
-            'route'         => 'admin.ticket.tickets.index',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'EQUIPOS DE TRABAJO'],
+        ],        
+        ['header' => 'EQUIPOS DE TRABAJO', 'can'  => 'admin.ticket.groups.index',],
         [
             'text' => 'Equipos de trabajo',
             'route'  => 'admin.ticket.groups.index',
-            'icon' => 'fas fa-fw fa-users',
+            'can'  => 'admin.ticket.groups.index',
+            'icon' => 'fas fa-fw fa-briefcase',
         ],
-        ['header' => 'PERMISOS Y ROLES'],
+        ['header' => 'PERMISOS Y ROLES', 'can'  => 'admin.roles.index',],
         [
             'text' => 'Roles',
-            'route'  => 'admin.ticket.users.index',
+            'route'  => 'admin.roles.index',
+            'can'  => 'admin.roles.index',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'ÁREAS'],
+        ['header' => 'ÁREAS', 'can'  => 'admin.ticket.areas.index',],
         [
             'text' => 'Áreas',
             'route'  => 'admin.ticket.areas.index',
+            'can'  => 'admin.ticket.areas.index',
             'icon' => 'fas fa-fw fa-building',
         ],
-        ['header' => 'COLABORADORES'],
+        ['header' => 'COLABORADORES', 'can'  => 'admin.ticket.users.index',],
         [
             'text' => 'Colaboradores',
             'route'  => 'admin.ticket.users.index',
+            'can'  => 'admin.ticket.users.index',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        ['header' => 'EXPORTACIÓN'],
+        [
+            'text' => 'Exportar datos',
+            'route'  => 'admin.data.export.index',
+            'can'  => 'admin.data.export.index',
+            'icon' => 'fas fa-fw fa-file-export',
         ],
     ],
 
@@ -351,7 +359,7 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],

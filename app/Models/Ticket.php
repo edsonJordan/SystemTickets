@@ -10,8 +10,15 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'type_ticket', 'priority_id', 'status_id', 'tittle', 'description'
+        'user_id', 'typeticket_id', 'priority_id', 'status_id', 'tittle', 'description'
     ];
+
+    /* 
+    public function getDatapickAttribute()
+    {
+    return $this->user_id . ' ' . $this->tittle;
+        } 
+        */
 
 
     public function area(){
@@ -24,10 +31,18 @@ class Ticket extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+  
     public function typeticket(){
         return $this->belongsTo(TypeTicket::class);
     }
     public function priority(){
         return $this->belongsTo(TicketPriority::class);
     }
+
+
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+    
 }

@@ -21,7 +21,9 @@ class UpdateUserRequest extends FormRequest
         $rules = [
             'name' => 'required|unique|max:50',
             'email' => 'required|unique:users|max:40',
-            'pass' => 'required'
+            'type_id' => 'required',
+            'area_id' => 'required',
+            'email' => 'required'
         ];
         if($user){
             $rules['name'] = 'required|unique:users,name,'.$user->id;

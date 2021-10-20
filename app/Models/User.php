@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
 
     public function getRouteKeyName(){
         return 'name';
@@ -24,6 +26,9 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
+        'type_id',
+        'area_id',
+        'group_id',
         'email',
         'password',
     ];
@@ -45,6 +50,7 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    
     public function type(){
         return $this->belongsTo(TypeUser::class);
     }
@@ -54,9 +60,14 @@ class User extends Authenticatable
     public function group(){
         return $this->belongsTo(GroupSupport::class);
     }
+    
 
     public function areas(){
         return $this->belongsToMany(Area::class);
+    }
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
     }
    
 }

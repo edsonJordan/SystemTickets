@@ -18,6 +18,8 @@ class CreateAssignmentsTable extends Migration
 
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('group_supports')->onDelete('cascade');
+            
+            
 
             $table->unsignedBigInteger('ticket_id')->nullable();
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
