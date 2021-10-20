@@ -33,6 +33,11 @@ class RoleSeeder extends Seeder
         $permission = Permission::create(['name' => 'admin.roles.edit', 'description' => 'Editar Roles'])->syncRoles([$role1, $role2]);
         $permission = Permission::create(['name' => 'admin.roles.destroy', 'description' => 'Eliminar Roles'])->syncRoles([$role1, $role2]); 
 
+        $permission = Permission::create(['name' => 'admin.roles.general.create', 'description' => 'Ver listado de roles general'])->syncRoles([$role1, $role2]);
+        $permission = Permission::create(['name' => 'admin.roles.general.store', 'description' => 'Crear Roles generales'])->syncRoles([$role1, $role2]);
+        $permission = Permission::create(['name' => 'admin.roles.general.destroy', 'description' => 'Eliminar Roles generales'])->syncRoles([$role1, $role2]); 
+
+
         $permission = Permission::create(['name' => 'admin.ticket.groups.index', 'description' => 'Ver listado de Grupos de Soporte'])->syncRoles([$role1, $role2]);
         $permission = Permission::create(['name' => 'admin.ticket.groups.create', 'description' => 'Crear Grupos de Soporte'])->syncRoles([$role1, $role2]);
         $permission = Permission::create(['name' => 'admin.ticket.groups.edit', 'description' => 'Editar Grupos de Soporte'])->syncRoles([$role1, $role2]);
@@ -54,5 +59,23 @@ class RoleSeeder extends Seeder
         $permission = Permission::create(['name' => 'admin.ticket.tickets.edit', 'description' => 'Editar Tickets'])->syncRoles([$role1]); 
         $permission = Permission::create(['name' => 'admin.ticket.tickets.destroy', 'description' => 'Eliminar Tickets'])->syncRoles([$role1]); 
 
+        $permission = Permission::create(['name' => 'admin.ticket.tickets.mygroup', 'description' => 'Ver los Tickets de mi Grupo'])->syncRoles([$role1]);
+        $permission = Permission::create(['name' => 'admin.ticket.tickets.myticket', 'description' => 'Ver los tickets que se me asignaron'])->syncRoles([$role1]);
+        
+
+        $permission = Permission::create(['name' => 'admin.ticket.userassignments.index', 'description' => 'Ver listado de asignaciones de tickets a usuarios'])->syncRoles([$role1]); 
+        $permission = Permission::create(['name' => 'admin.ticket.userassignments.create', 'description' => 'Crear asignaciones de tickets a usuarios'])->syncRoles([$role1]); 
+        $permission = Permission::create(['name' => 'admin.ticket.userassignments.edit', 'description' => 'Editar asignaciones de tickets a usuarios'])->syncRoles([$role1]); 
+        $permission = Permission::create(['name' => 'admin.ticket.userassignments.destroy', 'description' => 'Eliminar asignaciones de tickets a usuarios'])->syncRoles([$role1]);
+        
+        $permission = Permission::create(['name' => 'admin.ticket.assignments.index', 'description' => 'Ver listado de asignaciones de tickets a grupos de soporte'])->syncRoles([$role1]); 
+        $permission = Permission::create(['name' => 'admin.ticket.assignments.create', 'description' => 'Crear asignaciones de tickets a grupos de soporte'])->syncRoles([$role1]); 
+        $permission = Permission::create(['name' => 'admin.ticket.assignments.edit', 'description' => 'Editar asignaciones de tickets a grupos de soporte'])->syncRoles([$role1]); 
+        $permission = Permission::create(['name' => 'admin.ticket.assignments.destroy', 'description' => 'Eliminar asignaciones de tickets a grupos de soporte'])->syncRoles([$role1]); 
+    
+
+/*         $permission = Permission::create(['name' => 'admin.data.export.pdf', 'description' => 'Ver listado de datos para exportar en pdf'])->syncRoles([$role1]); 
+ */        /* $permission = Permission::create(['name' => 'admin.data.export.prueba', 'description' => 'Exportar datos en pdf'])->syncRoles([$role1]);  */
+    
     }
 }

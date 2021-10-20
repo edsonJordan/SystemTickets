@@ -9,8 +9,14 @@ use App\Models\Area;
 
 use Illuminate\Http\Request;
 
-class AreaController extends Controller
-{
+class AreaController extends Controller{
+
+    public function __construct(){
+        $this->middleware('can:admin.ticket.areas.index')->only('index');        
+        $this->middleware('can:admin.ticket.areas.create')->only('create', 'store');        
+        $this->middleware('can:admin.ticket.areas.edit')->only('edit', 'update');        
+        $this->middleware('can:admin.ticket.areas.destroy')->only('destroy');        
+    }
 
     public function index()
     {

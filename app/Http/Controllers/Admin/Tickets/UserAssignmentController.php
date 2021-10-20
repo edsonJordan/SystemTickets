@@ -7,9 +7,20 @@ use App\Models\Ticket;
 use App\Models\User;
 use App\Models\UserAssignment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class UserAssignmentController extends Controller
-{
+class UserAssignmentController extends Controller{
+
+    public function __construct(){
+        $this->middleware('can:admin.ticket.users.index')->only('index');
+        
+        $this->middleware('can:admin.ticket.users.create')->only('create', 'store');
+        
+        $this->middleware('can:admin.ticket.users.edit')->only('edit', 'update');
+        
+        $this->middleware('can:admin.ticket.users.destroy')->only('destroy');
+        
+    }
 
     public function index()
     {
@@ -28,11 +39,14 @@ class UserAssignmentController extends Controller
     public function store(Request $request)
     {
         //return $request;
-        foreach ($request->ticket_id as $req){
+        foreach ($request->ticket_id as $ticket){
             UserAssignment::create([                
                 'user_id'     => $request->user_id,
-                'ticket_id'   => $req
+                'ticket_id'   => $ticket
             ]);
+            DB::table('tickets')
+            ->where('id', $ticket)
+            ->update(['status_id' => 3]);
         }   
          
         return redirect()->route('admin.ticket.userassignments.index')->with('info', 'El ticket ha sido asignado correctamente');

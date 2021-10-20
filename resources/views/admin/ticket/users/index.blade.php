@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Edson Dev')
 @section('content_header')
+    <a class="btn btn-success btn-sm float-right" href="{{route('admin.ticket.users.create')}}">Nueva Usuario</a>
     <h1>Lista de usuarios</h1>
 @stop
 @section('content')

@@ -7,10 +7,17 @@ use App\Models\Assignment;
 use App\Models\GroupSupport;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\AssignOp\Concat;
 
-class AssignmentController extends Controller
-{
+class AssignmentController extends Controller{
+
+    public function __construct(){
+        $this->middleware('can:admin.ticket.assignments.index')->only('index');        
+        $this->middleware('can:admin.ticket.assignments.create')->only('create', 'store');        
+        $this->middleware('can:admin.ticket.assignments.edit')->only('edit', 'update');        
+        $this->middleware('can:admin.ticket.assignments.destroy')->only('destroy');        
+    }
     
     public function index(){
         $assignments = Assignment::all();
@@ -28,11 +35,14 @@ class AssignmentController extends Controller
     {
         //$post->technologies()->attach($request->group_id);
 
-        foreach ($request->ticket_id as $req){
+        foreach ($request->ticket_id as $ticket){
             Assignment::create([                
                 'group_id'     => $request->group_id,
-                'ticket_id'   => $req
+                'ticket_id'   => $ticket
             ]);
+            DB::table('tickets')
+            ->where('id', $ticket)
+            ->update(['status_id' => 3]);
         }   
         return redirect()->route('admin.ticket.assignments.index')->with('info', 'El área se edito correctamente');
     }

@@ -31,10 +31,18 @@ class Ticket extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+  
     public function typeticket(){
         return $this->belongsTo(TypeTicket::class);
     }
     public function priority(){
         return $this->belongsTo(TicketPriority::class);
     }
+
+
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
+    
 }

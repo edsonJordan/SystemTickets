@@ -21,7 +21,8 @@ li.page-item {
      <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="form-group  col-md col-lg-4">
+                <div class="form-group  col-md col-lg-3">
+                    {!! Form::label('inputUser', 'Usuario') !!}
                     {{-- <input type="text" name="inputUser" id="" wire:model="inputUser"> --}}
                     {{-- {{ Form::select('inputUser', $users, null, ['class' => 'select2', 'wire:model'=>'inputUser' , 'style' => 'width: 100%;']) }} --}}
                     <select class="form-control" id="inputUser" name="inputUser" wire:model="inputUser">
@@ -32,13 +33,16 @@ li.page-item {
                     </select>
                 </div>
                 <div class="form-group  col-md col-lg-2">
+                    {!! Form::label('inputDateStart', 'Desde') !!}
                     <input wire:model="inputDateStart" type="date" class="form-control" > 
                 </div>
                 <div class="form-group  col-md col-lg-2">
+                    {!! Form::label('inputDateEnd', 'Hasta') !!}
                     <input wire:model="inputDateEnd" type="date" class="form-control" > 
                 </div>
-                <div class="form-group  col-md col-lg-2">
-                    <select class="form-control " name="course" wire:model="inputStatus">
+                <div class="form-group  col-md col-lg-3">
+                    {!! Form::label('course', 'Estado del ticket') !!}
+                    <select class="form-control " style="width: 100%;" name="course" wire:model="inputStatus">
                         <option value=""> Seleccione Estado de ticket </option>                       
                         @foreach($getStatus as $statu)
                         <option value="{{ $statu->id }}">{{ $statu->status }}</option>

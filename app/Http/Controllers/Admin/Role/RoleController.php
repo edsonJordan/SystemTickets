@@ -8,8 +8,19 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class RoleController extends Controller
-{
+class RoleController extends Controller{
+    public function __construct(){
+
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy');
+
+
+        $this->middleware('can:admin.roles.general.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.general.store');
+        $this->middleware('can:admin.roles.general.destroy');
+    }
  
     public function index()
     {

@@ -9,8 +9,12 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 
-class PdfController extends Controller
-{
+class PdfController extends Controller{
+    public function __construct(){
+
+        $this->middleware('can:admin.data.export.index');
+        $this->middleware('can:admin.data.export.prueba');
+    }
     public function index()
     {
         return view('admin.data.export.index');

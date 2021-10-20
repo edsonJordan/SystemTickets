@@ -249,7 +249,7 @@ return [
             'text' => 'Equipos de trabajo',
             'route'  => 'admin.ticket.groups.index',
             'can'  => 'admin.ticket.groups.index',
-            'icon' => 'fas fa-fw fa-users',
+            'icon' => 'fas fa-fw fa-briefcase',
         ],
         ['header' => 'PERMISOS Y ROLES', 'can'  => 'admin.roles.index',],
         [
@@ -271,6 +271,13 @@ return [
             'route'  => 'admin.ticket.users.index',
             'can'  => 'admin.ticket.users.index',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        ['header' => 'EXPORTACIÓN'],
+        [
+            'text' => 'Exportar datos',
+            'route'  => 'admin.data.export.index',
+            'can'  => 'admin.data.export.index',
+            'icon' => 'fas fa-fw fa-file-export',
         ],
     ],
 

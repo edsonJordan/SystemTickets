@@ -9,8 +9,14 @@ use App\Models\GroupSupport;
 use App\Models\TypeSupport;
 use Illuminate\Http\Request;
 
-class GroupSupportController extends Controller
-{
+class GroupSupportController extends Controller{
+    public function __construct(){
+        $this->middleware('can:admin.ticket.groups.index')->only('index');
+        $this->middleware('can:admin.ticket.groups.create')->only('create', 'store');
+        $this->middleware('can:admin.ticket.groups.edit')->only('edit', 'update');
+        $this->middleware('can:admin.ticket.groups.destroy')->only('destroy');
+    }
+
     public function index()
     {   
         $groups= GroupSupport::all();

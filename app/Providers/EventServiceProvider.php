@@ -49,15 +49,29 @@ class EventServiceProvider extends ServiceProvider
 
                 ['text' => 'Tickets a equipos', 
                 'route' => 'admin.ticket.assignments.index',
-                'icon'=> 'far fa-fw fa-file',                                  
+                'can' => 'admin.ticket.assignments.index',
+                'icon'=> 'fas fa-fw fa-users',                                  
                 'label' =>  $countAssignment,
                 'label_color' =>'primary'],
             
                 ['text' => 'Tickets a colaborador', 
                 'route' => 'admin.ticket.userassignments.index',
-                'icon'=> 'far fa-fw fa-file',                                  
+                'can' => 'admin.ticket.userassignments.index',
+                'icon'=> 'fas fa-fw fa-user-cog',                 
                 'label' =>  $countUserAssignment,
-                'label_color' =>'primary']);
+                'label_color' =>'primary'],
+
+                ['text' => 'Tickets de mi equipo', 
+                'route' => 'admin.ticket.tickets.mygroup',
+                'can' => 'admin.ticket.tickets.mygroup',
+                'icon'=> 'far fa-fw fa-building'],
+
+                ['text' => 'Mis Tickets', 
+                'route' => 'admin.ticket.tickets.myticket',
+                'can' => 'admin.ticket.tickets.myticket',
+                'icon'=> 'far fa-fw fa-building']
+
+            );
         });
     }
 }
