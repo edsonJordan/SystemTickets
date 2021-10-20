@@ -10,12 +10,9 @@ use App\Http\Controllers\Admin\Tickets\UserController;
 use App\Models\UserAssignment;
 
 //Route::get('/home', [HomeController::class, 'index'])->name("admin.ticket.index");
-<<<<<<< HEAD
-Route::resource('/', HomeController::class)->names("admin.ticket.home"); 
 
-=======
 Route::resource('/', HomeController::class)->only('index')->names("admin.ticket.home"); 
->>>>>>> 88e6f4efece2c4540ed3066978f1f639763da386
+
 Route::resource('/users', UserController::class)->names('admin.ticket.users');
 
 Route::resource('/areas', AreaController::class)->names('admin.ticket.areas');
