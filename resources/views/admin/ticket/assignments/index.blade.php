@@ -24,9 +24,10 @@
                         <th>ID</th>
                         <th>Grupo</th>
                         <th>Titulo de Ticket</th>
-                        <th>Estatus</th>
+                        
                         <th>Creado</th>
                         <th>Ultima modificación</th>
+                        <th>Estado</th>
                         <th class="text-center" >Operaciones</th>                        
                     </tr>
                 </thead>
@@ -35,10 +36,10 @@
                         <tr>
                             <td>{{$assignment->id}}</td>
                             <td>{{$assignment->group->group}}</td>
-                            <td>{{ substr($assignment->ticket->tittle, 0, 50)."...." }}</td>                             
-                            <td>{{$assignment->ticket->status->status}}</td>        
+                            <td>{{ substr($assignment->ticket->tittle, 0, 50)."...." }}</td>                            
                             <td>{{$assignment->created_at->formatLocalized('%d %B %Y %I:%M %p') }}</td>
-                            <td>{{$assignment->updated_at->formatLocalized('%d %B %Y %I:%M %p') }}</td>                 
+                            <td>{{$assignment->updated_at->formatLocalized('%d %B %Y %I:%M %p') }}</td>       
+                            <td>{{$assignment->ticket->status->status}}</td>          
                             <td class="row d-flex-lg justify-content-around" >      
                                 <a  href="{{route('admin.ticket.tickets.show', $assignment->ticket->id)}}" class="btn btn-primary btn-sm">Ver</a>
                                 <form action="{{route('admin.ticket.assignments.destroy', $assignment)}}" class="formulario-eliminar" method="POST">
@@ -57,9 +58,10 @@
                         <th>ID</th>
                         <th>Grupo</th>
                         <th>Tipo de ticket</th>
-                        <th>Estatus</th>
+                        
                         <th>Creado</th>
                         <th>Ultima modificación</th>
+                        <th>Estado</th>
                         <th class="text-center" >Operaciones</th>    
                     </tr>
                 </tfoot>

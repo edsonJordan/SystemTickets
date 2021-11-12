@@ -18,7 +18,15 @@ Route::resource('/users', UserController::class)->names('admin.ticket.users');
 Route::resource('/areas', AreaController::class)->names('admin.ticket.areas');
 Route::resource('/groups', GroupSupportController::class)->names('admin.ticket.groups');
 
+
+//Route::get('{ticket}/tickets/editmygroup', [RoleController::class, 'editgeneral'])->name("admin.ticket.tickets.editmygroup"); 
+Route::match(['put', 'patch'],'/tickets/editmygroup/{assignment}', [TicketController::class, 'editmygroup'])->name("admin.ticket.tickets.editmygroup"); 
+Route::match(['put', 'patch'],'/tickets/editmyticket/{userassignment}', [TicketController::class, 'editmyticket'])->name("admin.ticket.tickets.editmyticket"); 
+
 Route::get('/tickets/mygroup', [TicketController::class, 'mygroup'])->name('admin.ticket.tickets.mygroup');
+
+
+
 Route::get('/tickets/myticket', [TicketController::class, 'myticket'])->name('admin.ticket.tickets.myticket');
 
 Route::resource('/tickets', TicketController::class)->names('admin.ticket.tickets');

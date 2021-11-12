@@ -240,10 +240,7 @@ return [
         [
             'text'        => 'Dashboard',
             'route'         => 'admin.ticket.home.index',
-<<<<<<< HEAD
-=======
             'can'         => 'admin.ticket.home.index',
->>>>>>> 88e6f4efece2c4540ed3066978f1f639763da386
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'label_color' => 'success',
         ],        

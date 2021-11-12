@@ -7,9 +7,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-3">
-          {{-- Layout Classic / Custom --}}
         <x-adminlte-profile-widget name="{{$user->name}}" desc="{{$user->type->type_user}}" class="elevation-4"
-        img="https://picsum.photos/id/1027/100" cover="https://picsum.photos/id/130/550/200"
+        img="{{$user->profile_photo_url}}" cover="https://picsum.photos/id/130/550/200"
         layout-type="classic" header-class="text-right" footer-class="bg-gradient-teal">
         <x-adminlte-profile-col-item class="border-right text-dark" icon="fas fa-lg fa-tasks"
             title="Projects Done" text="25" size=6 badge="lime"/>

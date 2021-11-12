@@ -16,12 +16,13 @@ use Illuminate\Http\Request;
 class TicketController extends Controller{
     public function __construct(){
         $this->middleware('can:admin.ticket.tickets.index')->only('index');
+        $this->middleware('FilterShowTicket')->only('show');
         $this->middleware('can:admin.ticket.tickets.create')->only('create', 'store');
         $this->middleware('can:admin.ticket.tickets.edit')->only('edit', 'update');
         $this->middleware('can:admin.ticket.tickets.destroy')->only('destroy');
 
-        $this->middleware('can:admin.ticket.tickets.myticket');
-        $this->middleware('can:admin.ticket.tickets.mygroup');
+        $this->middleware('can:admin.ticket.tickets.myticket')->only('myticket');
+        $this->middleware('can:admin.ticket.tickets.mygroup')->only('mygroup');
     }
 
 
@@ -43,11 +44,12 @@ class TicketController extends Controller{
     public function store(StoreTicketRequest $request)
     {
         Ticket::create($request->all());        
-        return redirect()->route('admin.ticket.tickets.index')->with('info', 'El área se creo correctamente');
+       return redirect()->route('admin.ticket.tickets.index')->with('info', 'El área se creo correctamente');
     }
 
     public function show(Ticket $ticket)
     {
+        
         return view('admin.ticket.tickets.show', compact('ticket'));
     }
 
@@ -62,7 +64,6 @@ class TicketController extends Controller{
     }
     public function update(StoreTicketRequest $request, Ticket $ticket)
     {
-        
         $ticket->update($request->all());
         return redirect()->route('admin.ticket.tickets.index')->with('info', 'El ticket se edito correctamente');
     }
@@ -74,17 +75,26 @@ class TicketController extends Controller{
     }
     public function mygroup()
     {
-       
         $group =  User::select('group_id')->where('id', auth()->id())->get();
         $tickets = Assignment::where('group_id', $group[0]->group_id)->get();
         return view('admin.ticket.tickets.mygroup', compact('tickets', 'group'));
     }
+    public function editmygroup(Assignment $assignment)
+    {
+        Ticket::where('id', $assignment->ticket_id)->update(['status_id' => 2]);
+        return redirect()->route('admin.ticket.tickets.mygroup')->with('info', 'El ticket se dio de alta correctamente');
+    }
     public function myticket()
     {
-        $tickets = UserAssignment::where('user_id', auth()->id())->get();
+        $tickets = UserAssignment::where('user_id', auth()->id() )->get();
         return view('admin.ticket.tickets.myticket', compact('tickets'));
     }
-
+    public function editmyticket(UserAssignment $userassignment)
+    {
+       
+        Ticket::where('id', $userassignment->ticket_id)->update(['status_id' => 2]);
+        return redirect()->route('admin.ticket.tickets.myticket')->with('info', 'El ticket se dio de alta correctamente');
+    }
     
 
 }

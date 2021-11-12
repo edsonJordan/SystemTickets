@@ -20,9 +20,9 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
-    public function getRouteKeyName(){
+    /* public function getRouteKeyName(){
         return 'name';
-    }
+    } */
 
     protected $fillable = [
         'name',

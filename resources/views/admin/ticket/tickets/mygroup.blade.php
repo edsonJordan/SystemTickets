@@ -26,6 +26,7 @@
                         <th>Titulo</th>
                         <th>Prioridad</th>
                         <th>Asignado</th>
+                        <th>Estado</th>
                         <th class="text-center" >Operaciones</th>                        
                     </tr>
                 </thead>
@@ -37,9 +38,17 @@
                             <td>{{$ticket->ticket->typeticket->type}}</td>
                             <td>{{  substr($ticket->ticket->tittle, 0, 50)."...." }}</td>
                             <td>{{$ticket->ticket->priority->priority}}</td>
-                            <td>{{$ticket->created_at->formatLocalized('%d %B %Y %I:%M %p')}}</td>                           
-                            <td class="row d-flex-lg justify-content-around" >                                  
-                                <a href="{{route('admin.ticket.tickets.edit', $ticket->ticket)}}" class="btn  btn-sm btn-warning">Dar de alta</a>                                                           
+                            <td>{{$ticket->created_at->formatLocalized('%d %B %Y %I:%M %p')}}</td>     
+                            <td>{{$ticket->ticket->status->status}}</td>                      
+                            <td class="row d-flex-lg justify-content-around" >  
+                                <form action="{{route('admin.ticket.tickets.editmygroup', $ticket->id)}}" class="formulario-eliminar" method="POST">
+                                    @csrf
+                                    @method('put')
+                                    <button type="submit" class="btn btn-warning btn-sm">
+                                        Dar de alta
+                                    </button>
+                                </form> 
+                                
                                 <a width="20px" href="{{route('admin.ticket.tickets.show', $ticket->ticket)}}" class="btn btn-primary btn-sm">Ver</a>                                                   
                             </td>
                         </tr>
@@ -52,7 +61,8 @@
                         <th>Tipo de ticket</th>
                         <th>Titulo</th>
                         <th>Prioridad</th>
-                        <th>Asignado</th>
+                        <th>Asignado</th>                        
+                        <th>Estado</th>
                         <th class="text-center" >Operaciones</th>  
                     </tr>
                 </tfoot>
@@ -76,13 +86,12 @@
     $('.formulario-eliminar').submit(function(e) {
         e.preventDefault();
         Swal.fire({
-        title: 'De verdad quieres eliminar el registro?',
-        text: "Una ves eliminado no se podra recuperar",
+        title: 'De verdad quieres dar de alta el ticket?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
+        confirmButtonText: 'Si, dar de alta!',
         cancelButtonText: 'Cancelar!'
             }).then((result) => {
               if(result.value){

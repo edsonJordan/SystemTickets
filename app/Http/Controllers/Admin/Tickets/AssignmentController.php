@@ -66,7 +66,7 @@ class AssignmentController extends Controller{
     public function destroy(Assignment $assignment)
     {
         
-        return $assignment;
+        //return $assignment;
         $assignment->delete($assignment);
         return redirect()->route('admin.ticket.assignments.index')->with('info', 'Los datos se eliminaron satisfactoriamente');
     }
