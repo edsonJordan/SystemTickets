@@ -56,7 +56,7 @@ class HomeController extends Controller{
         $TickeAsignados = Ticket::where('status_id', 3)->count();
 
         $ranking = DB::table('tickets')
-        ->select('user_id', 'users.name',DB::raw('COUNT(user_id) AS conteo'))
+        ->select('user_id', 'users.name', DB::raw('COUNT(user_id) AS conteo'))
         ->join('users', 'users.id', '=', 'tickets.user_id')
         ->orderBy('conteo','desc')
         ->groupBy('user_id')

@@ -15,6 +15,8 @@
             
         <div class="card-body">
                 {!! Form::model($user,['route' => ['admin.ticket.users.update', $user], 'method'=>'put']) !!}            
+                <input id="id" name="id" type="hidden" value="{{$user->id}}" >
+
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del usuario']) !!}
@@ -45,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('group', 'Grupo de Soporte') !!}
-                    {{ Form::select('group',  $groups, null, ['class' => 'select2', 'style' => 'width: 100%;']) }}
+                    {{ Form::select('group_id',  $groups, null, ['class' => 'select2', 'style' => 'width: 100%;']) }}
                     @error('group')
                         <span class="text-danger">{{$message}}</span>
                     @enderror

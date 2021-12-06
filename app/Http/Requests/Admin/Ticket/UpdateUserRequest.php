@@ -19,7 +19,7 @@ class UpdateUserRequest extends FormRequest
     {
         $user = $this->route()->parameter('user');
         $rules = [
-            'name' => 'required|unique|max:50',
+            'name' => 'required|unique:users|max:50',
             'email' => 'required|unique:users|max:40',
             'type_id' => 'required',
             'area_id' => 'required',

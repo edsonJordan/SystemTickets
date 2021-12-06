@@ -34,34 +34,38 @@ class UserController extends Controller{
     }
 
     public function store(StoreUserRequest $request)
-    {
-        User::create($request->all());        
+    {   
+        //User::create($request->all());   
+        User::create([                
+                'name'     => $request->name,
+                'email'   => $request->email,
+                'password'  => Hash::make($request->password),
+                'type_id' => $request->type_id,
+                'group_id'  => $request->group_id,
+                'area_id'  => $request->area_id,
+            ]);
+      
         return redirect()->route('admin.ticket.users.index')->with('info', 'El usuario se creo correctamente');
     }
-    public function show(User $user)
-    {
+    public function show(User $user)    {
         return view('admin.ticket.users.show', compact('user'));
     }
-
-    public function edit(User $user)
-    {
+    public function edit(User $user)    {
         $areas = Area::pluck('area', 'id');
         $groups = GroupSupport::pluck('group', 'id');
         $types = TypeUser::pluck('type_user', 'id');
         return view('admin.ticket.users.edit', compact('user', 'areas', 'groups', 'types'));
     }
-
     public function update(UpdateUserRequest $request, User $user)
     {
-        /* $newuser = array(
-            'name' => $request->name,
-            'email' => $request->email,
-            'password'    => Hash::make($request->pass)
-        ); */
-        /* if ($request->pass) {
-        } */
-        $user->update($request->all());
-        //$user->update($newuser);
+        User::where('id', $user->id)
+        ->update([
+        'name'     => $request->name,
+        'email'   => $request->email,
+        'type_id' => $request->type_id,
+        'group_id'  => $request->group_id,
+        'area_id'  => $request->area_id,
+        ]);
         return redirect()->route('admin.ticket.users.index', $user)->with('info', 'El usuario se edito correctamente');
     }
 

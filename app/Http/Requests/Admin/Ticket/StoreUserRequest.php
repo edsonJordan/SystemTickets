@@ -24,11 +24,12 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'type_id' => 'required',
+            'name' => 'required|unique:users|max:50',            
+            'email' => 'required|unique:users|max:40',
+            'type_id' => 'required|',
             'area_id' => 'required',
-            'email' => 'required',
             'password' => 'required'
+
         ];
     }
     public function attibutes()
@@ -44,6 +45,16 @@ class StoreUserRequest extends FormRequest
     public function messages()
     {
         return[
+            'name.unique'=>'Debe nombre del usuario ya existe',
+            'name.required'=>'Debe Ingresar un nombre de usuario',
+            'name.max' => 'Sobre paso el maximo de caracteres permitidos (50)',
+
+            'email.required'=>'Debe Ingresar un nombre de usuario',
+            'email.unique' => 'El correo del usuario que ingreso ya existe',
+            'email.max' => 'Sobre paso el maximo de caracteres permitidos (40)',
+
+            'pass.required'=>'Debe Ingresar una contraseña de usuario',
+            
             'name.required'=>'Debe Ingresar un nombre de  usuario',
             'type_id.required'=>'Debe Ingresar un tipo de usuario',
             'area_id.required'=>'Debe Ingresar la area del usuario',

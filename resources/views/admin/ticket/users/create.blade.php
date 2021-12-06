@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('group', 'Grupo de Soporte') !!}
-                {{ Form::select('group', [[''], $groups], null, ['class' => 'select2', 'style' => 'width: 100%;']) }}
+                {{ Form::select('group_id', [[''], $groups], null, ['class' => 'select2', 'style' => 'width: 100%;']) }}
                 @error('group')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
